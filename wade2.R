@@ -8,7 +8,7 @@ wade2 <- wade %>% gather(key = stage, value = count, bud:pre.A)
 wade2$stage <- factor(wade2$stage, levels = c("bud", "stage.D", "pre.A"),
                       labels = c("bud", "stage D", "pre-A"))
 wade2$gene <- factor(wade2$gene, levels = c("CHS", "CHI", "F3H", "F3'H", "F3'5'H", "DFR", "ANS"))
-wade2$species <- factor(wade2$gene, levels = c("Ac", "Ae", "Am", "Ap"))
+wade2$species <- factor(wade2$species, levels = c("Ac", "Ae", "Am", "Ap"))
 
 ggplot(wade2, aes(stage, count)) + 
   theme(panel.background = element_blank(),
@@ -21,7 +21,7 @@ ggplot(wade2, aes(stage, count)) +
   scale_shape_manual(values = c(0,1,2,5)) + 
   geom_point(aes(shape = species)) + 
   geom_line(aes(color = species, group = species)) +
-  scale_color_manual(values = c("pink", "grey50", "red", "blue")) +
+  scale_color_manual(values = c("magenta", "grey50", "red", "blue")) +
   facet_wrap(~gene, scales = "free", ncol = 2) + 
   labs(x = "")
 ggsave("wade.png", width=25, height=25, unit="cm", dpi=600)
