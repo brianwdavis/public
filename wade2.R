@@ -1,6 +1,7 @@
 library(dplyr)
 library(ggplot2)
-library(tiyr)
+library(tidyr)
+library(grid)
 
 wade <- read.csv("wade.csv", stringsAsFactors = F)
 wade2 <- wade %>% gather(key = stage, value = count, bud:pre.A)
